@@ -4,17 +4,15 @@ namespace XlsTypewriter;
 
 public class Workbook : IDisposable
 {
-    private readonly List<Worksheet> _worksheets;
+    private readonly List<Worksheet> _worksheets = new();
 
     private readonly XLWorkbook _workbook;
 
     public Workbook()
     {
         _workbook = new XLWorkbook();
-
-        _worksheets = new List<Worksheet>();
     }
-    
+
     public void SaveAs(string path) => _workbook.SaveAs(path);
 
     public Worksheet AddWorksheet(string name)
