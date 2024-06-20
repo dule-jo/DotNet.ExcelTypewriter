@@ -2,7 +2,11 @@
 # XlsTypewriter
 ExcelTypewriter is .NET library for writing Excel files built on top of [ClosedXML](https://github.com/ClosedXML/ClosedXML). It aims to provide intuitive and user friendly interface, simulating typewriter. User doesn't have to worry about cell names. Instead of writing cell names him/herself (e.g. "C3"), user navigates excel file using functions Print, Skip and NextRow.
 ## Installation
-Library is not yet published
+Package can be installed as Nuget package.
+
+```
+dotnet add package XlsTypewriter
+```
 ## What can you do with this?
 XlsTypewriter allows you to write Excel file without keeping track of cell names. 
 
