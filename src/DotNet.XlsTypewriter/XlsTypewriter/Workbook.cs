@@ -1,18 +1,21 @@
 ﻿using ClosedXML.Excel;
 
-namespace DotNet.XlsTypewriter;
+namespace XlsTypewriter;
 
 public class Workbook : IDisposable
 {
-    private List<Worksheet> _worksheets;
+    private readonly List<Worksheet> _worksheets;
 
-    private XLWorkbook _workbook;
+    private readonly XLWorkbook _workbook;
 
-    public Workbook(string path)
+    public Workbook()
     {
-        _workbook = new XLWorkbook(path);
+        _workbook = new XLWorkbook();
+
         _worksheets = new List<Worksheet>();
     }
+    
+    public void SaveAs(string path) => _workbook.SaveAs(path);
 
     public Worksheet AddWorksheet(string name)
     {
