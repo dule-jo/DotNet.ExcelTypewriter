@@ -1,4 +1,4 @@
-namespace DotNet.XlsTypewriter.Common;
+namespace XlsTypewriter.Common;
 
 public static class XlsHelper
 {

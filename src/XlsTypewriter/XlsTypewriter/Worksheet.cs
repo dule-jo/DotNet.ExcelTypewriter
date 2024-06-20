@@ -1,5 +1,5 @@
 using ClosedXML.Excel;
-using DotNet.XlsTypewriter.Common;
+using XlsTypewriter.Common;
 
 namespace XlsTypewriter;
 
