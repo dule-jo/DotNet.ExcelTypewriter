@@ -32,9 +32,33 @@ worksheet.Merge(columns:2, rows:1); // merge current cell with next cell in row,
 worksheet.Merge(2, 2); // merge current cell with cells in next row and in next column, getting 2x2 cell
 ```
 ## Style
+Style can be set for current cell or for range of cells.
 ```
-
+var style = worksheet.GetStyle();
+style.Font.Bold = true;
+worksheet.SetStyle(style, 2, 1); // set style for cell in 2nd column and 1st row
 ```
+Style can be set using predefined styles.
+```
+worksheet.SetBoxBorders(XLBorderStyleValues.Thick); // set thick border around current cell
+worksheet.SetBordersColor(XLColor.Blue, 2, 1); // set blue color for borders current cell and next cell in row
+worksheet.SetVerticalBorders(XLBorderStyleValues.Thin, 1, 2); // set thin vertical borders for current cell and next cell in column
+worksheet.SetHorizontalBorders(XLBorderStyleValues.Medium);
+worksheet.SetFontColor(XLColor.Amber);
+worksheet.SetBackgroundColor(XLColor.Bistre);
+worksheet.SetFontName("Arial");
+worksheet.SetFontSize(12);
+worksheet.SetFontItalic();
+worksheet.SetFontUnderline();
+worksheet.SetVerticalAlignment(XLAlignmentVerticalValues.Center);
+worksheet.SetHorizontalAlignment(XLAlignmentHorizontalValues.Center);
+worksheet.SetBordersColor(XLColor.Blue);
+worksheet.SetTopBorder(XLBorderStyleValues.Thin);
+worksheet.SetBottomBorder(XLBorderStyleValues.Thin);
+worksheet.SetLeftBorder(XLBorderStyleValues.Thin);
+worksheet.SetRightBorder(XLBorderStyleValues.Thin);
+```
+**TODO**:: Add style for whole row and column
 
 ## Navigation
 Beside regular Print, Skip and NewRow navigating through file, you can use 
@@ -43,3 +67,7 @@ GoTo(int column, int row) // go to cell with given column and row
 GoToStart() // go to begin of file, or "A1" cell
 GoToEnd() // go to last used cell in file
  ```
+
+## Formula
+
+*TO DO*

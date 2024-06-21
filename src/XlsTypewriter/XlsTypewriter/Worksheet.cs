@@ -66,7 +66,7 @@ public class Worksheet
         GetRange(rows, columns).Style = style;
     }
 
-    public void SetFontNameStyle(string fontName, int columns = 1, int rows = 1)
+    public void SetFontName(string fontName, int columns = 1, int rows = 1)
     {
         var style = GetStyle();
         style.Font.FontName = fontName;

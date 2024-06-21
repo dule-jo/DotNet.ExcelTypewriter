@@ -13,6 +13,7 @@ worksheet.Print("World");
 worksheet.NewRow();
 
 var style = worksheet.GetStyle();
+style.Font.Bold = true;
 worksheet.SetStyle(style, 2, 1);
 worksheet.Print("Hello2");
 worksheet.Print("World2");
