@@ -13,7 +13,7 @@ XlsTypewriter allows you to write Excel file without keeping track of cell names
 ```  
 using XlsTypewriter;  
   
-var workbook = new Workbook();  
+using var workbook = new Workbook();  
 var worksheet = workbook.AddWorksheet("Sheet1");
 
 for (var i = 1; i < 4; i++) {
@@ -27,7 +27,7 @@ workbook.SaveAs("Example.xlsx");
 ```
 ## Merging cells
 ```
-worksheet.Merge(columns:2, rows:1); // merge current cell with next cell in row, getting 2*1
+worksheet.Merge(rows:1, columns:2); // merge current cell with next cell in row, getting 2*1
 worksheet.Merge(2, 2); // merge current cell with cells in next row and in next column, getting 2x2 cell
 ```
 ## Style
@@ -35,13 +35,13 @@ Style can be set for current cell or for range of cells.
 ```
 var style = worksheet.GetStyle();
 style.Font.Bold = true;
-worksheet.SetStyle(style, 2, 1); // set style for cell in 2nd column and 1st row
+worksheet.SetStyle(style, 1, 2); // set style for cell in 2nd column and 1st row
 ```
 Style can be set using predefined styles.
 ```
 worksheet.SetBoxBorders(XLBorderStyleValues.Thick); // set thick border around current cell
-worksheet.SetBordersColor(XLColor.Blue, 2, 1); // set blue color for borders current cell and next cell in row
-worksheet.SetVerticalBorders(XLBorderStyleValues.Thin, 1, 2); // set thin vertical borders for current cell and next cell in column
+worksheet.SetBordersColor(XLColor.Blue, 1, 2); // set blue color for borders current cell and next cell in row
+worksheet.SetVerticalBorders(XLBorderStyleValues.Thin, 2, 1); // set thin vertical borders for current cell and next cell in column
 worksheet.SetHorizontalBorders(XLBorderStyleValues.Medium);
 worksheet.SetFontColor(XLColor.Amber);
 worksheet.SetBackgroundColor(XLColor.Bistre);
@@ -67,11 +67,9 @@ Style can be set for whole row and column
 ```
 worksheet.SetRowStyle(style);  // set style for current row
 worksheet.SetRowStyle(style, 3); // set style for current and next 2 rows
-worksheet.SetRowStyle(style3, [1, 3]); // set style for 1st and 3rd row
 
 worksheet.SetColumnStyle(style); // set style for current column
 worksheet.SetColumnStyle(style, 3); // set style for current and next 2 columns
-worksheet.SetColumnStyle(style, [1, 3]); // set style for 1st and 3rd column
 ```
 ## Navigation
 Beside regular Print, Skip and NewRow navigating through file, you can use 
@@ -80,10 +78,13 @@ GoTo(int column, int row) // go to cell with given column and row
 GoToStart() // go to begin of file, or "A1" cell
 GoToEnd() // go to last used cell in file
  ```
-## Adjusting column width
+## Adjusting column width and row height
 ```
-worksheet.AdjustColumnWidth([1, 3]); // adjust width of 1st and 3rd column
 worksheet.AdjustColumnWidth(); // adjust width of all used columns
+worksheet.AdjustCurrentColumnWidth(); // adjust width of current column
+
+worksheet.AdjustRowHeight(); // adjust height of all used rows
+worksheet.AdjustCurrentRowHeight(); // adjust height of current row
 ```
 ## Formulas
 

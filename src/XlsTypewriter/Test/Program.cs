@@ -3,7 +3,9 @@
 using ClosedXML.Excel;
 using XlsTypewriter;
 
-var workbook = new Workbook();
+using var workbook = new Workbook();
+workbook.Properties.Title = "Hello World";
+workbook.CustomProperties.Add("Author2", "John Doe");
 var worksheet = workbook.AddWorksheet("aaa");
 
 worksheet = workbook.GetWorksheet("aaa");
@@ -25,7 +27,7 @@ worksheet.SetStyleToWorksheet(wsstyle);
 
 var style = worksheet.GetStyle();
 style.Font.Bold = true;
-worksheet.SetStyle(style, 2, 1);
+worksheet.SetStyle(style, 1, 2);
 worksheet.Print("Hello2");
 worksheet.Print("World2");
 worksheet.NewRow();
@@ -64,8 +66,6 @@ worksheet.NewRow();
 worksheet.Print("Hello");
 worksheet.Print("world");
 
-// worksheet.SetRowStyle(style3, [1, 3]);
-
 worksheet = workbook.AddWorksheet("Sheet3");
 
 var style4 = worksheet.GetStyle();
@@ -85,8 +85,7 @@ worksheet.Print("Hello");
 worksheet.Print("Whole");
 worksheet.Print("World, this is very long column");
 
-worksheet.AdjustColumnWidth([1, 3]);
-
-// worksheet.SetColumnStyle(style5, [1, 3]);
+worksheet.AdjustColumnWidth();
+worksheet.AdjustRowHeight();
 
 workbook.SaveAs("./HelloWorld.xlsx");

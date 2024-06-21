@@ -6,12 +6,11 @@ public class Workbook : IDisposable
 {
     private readonly List<Worksheet> _worksheets = new();
 
-    private readonly XLWorkbook _workbook;
+    private readonly XLWorkbook _workbook = new();
 
-    public Workbook()
-    {
-        _workbook = new XLWorkbook();
-    }
+    public XLWorkbookProperties Properties => _workbook.Properties;
+    
+    public IXLCustomProperties CustomProperties => _workbook.CustomProperties;
 
     public void SaveAs(string path) => _workbook.SaveAs(path);
 
