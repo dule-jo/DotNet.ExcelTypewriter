@@ -1,9 +1,8 @@
 
-# XlsTypewriter
+## Summary
 ExcelTypewriter is .NET library for writing Excel files built on top of [ClosedXML](https://github.com/ClosedXML/ClosedXML). It aims to provide intuitive and user friendly interface, simulating typewriter. User doesn't have to worry about cell names. Instead of writing cell names him/herself (e.g. "C3"), user navigates excel file using functions Print, Skip and NextRow.
 ## Installation
 Package can be installed as Nuget package.
-
 ```
 dotnet add package XlsTypewriter
 ```
@@ -58,8 +57,22 @@ worksheet.SetBottomBorder(XLBorderStyleValues.Thin);
 worksheet.SetLeftBorder(XLBorderStyleValues.Thin);
 worksheet.SetRightBorder(XLBorderStyleValues.Thin);
 ```
-**TODO**:: Add style for whole row and column
+Style can be set for whole file
+```
+var wsstyle = worksheet.GetStyle();
+wsstyle.Font.Bold = true;
+worksheet.SetStyleToWorksheet(wsstyle);
+```
+Style can be set for whole row and column
+```
+worksheet.SetRowStyle(style);  // set style for current row
+worksheet.SetRowStyle(style, 3); // set style for current and next 2 rows
+worksheet.SetRowStyle(style3, [1, 3]); // set style for 1st and 3rd row
 
+worksheet.SetColumnStyle(style); // set style for current column
+worksheet.SetColumnStyle(style, 3); // set style for current and next 2 columns
+worksheet.SetColumnStyle(style, [1, 3]); // set style for 1st and 3rd column
+```
 ## Navigation
 Beside regular Print, Skip and NewRow navigating through file, you can use 
 ```
@@ -67,7 +80,11 @@ GoTo(int column, int row) // go to cell with given column and row
 GoToStart() // go to begin of file, or "A1" cell
 GoToEnd() // go to last used cell in file
  ```
-
-## Formula
+## Adjusting column width
+```
+worksheet.AdjustColumnWidth([1, 3]); // adjust width of 1st and 3rd column
+worksheet.AdjustColumnWidth(); // adjust width of all used columns
+```
+## Formulas
 
 *TO DO*
