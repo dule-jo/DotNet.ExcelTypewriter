@@ -87,5 +87,9 @@ worksheet.AdjustRowHeight(); // adjust height of all used rows
 worksheet.AdjustCurrentRowHeight(); // adjust height of current row
 ```
 ## Formulas
-
 *TO DO*
+## Properties
+```
+workbook.Properties.Title = "Hello World";
+workbook.CustomProperties.Add("Author2", "John Doe");
+```

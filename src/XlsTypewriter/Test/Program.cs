@@ -32,7 +32,7 @@ worksheet.Print("Hello2");
 worksheet.Print("World2");
 worksheet.NewRow();
 
-worksheet.Merge(2, 1);
+worksheet.Merge(1, 2);
 worksheet.Print("Hello3 World3");
 worksheet.NewRow();
 

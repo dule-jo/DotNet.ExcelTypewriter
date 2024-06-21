@@ -37,7 +37,7 @@ public class Worksheet(IXLWorksheet worksheet)
 
     private IXLRange GetRange(int rows, int columns) => worksheet.Range(
         CurrentCell,
-        worksheet.Cell(_columnIndex + columns - 1, _rowIndex + rows - 1)
+        worksheet.Cell(_rowIndex + rows - 1, _columnIndex + columns - 1)
     );
 
     public IXLStyle GetStyleFromWorksheet() => worksheet.Style;
