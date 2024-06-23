@@ -8,6 +8,8 @@ public class Worksheet(IXLWorksheet worksheet)
     private int _rowIndex = 1;
 
     private int _columnIndex = 1;
+    
+    private readonly Stack<Position> _positions = new();
 
     private IXLCell CurrentCell => worksheet.Cell(_rowIndex, _columnIndex);
     
@@ -22,6 +24,17 @@ public class Worksheet(IXLWorksheet worksheet)
     public void GoToStart() => GoTo(1, 1);
 
     public void GoToEnd() => GoTo(worksheet.LastRowUsed().RowNumber(), worksheet.LastColumnUsed().ColumnNumber());
+    
+    public void PushPosition() => _positions.Push(new Position(_rowIndex, _columnIndex));
+    
+    public void PopPosition()
+    {
+        var position = _positions.Pop();
+        _rowIndex = position.RowIndex;
+        _columnIndex = position.ColumnIndex;
+    }
+    
+    public void PurgePositions() => _positions.Clear();
 
     public void Print(object value)
     {

@@ -78,6 +78,14 @@ GoTo(int column, int row) // go to cell with given column and row
 GoToStart() // go to begin of file, or "A1" cell
 GoToEnd() // go to last used cell in file
  ```
+Position can be saved and restored using position stack
+```
+worksheet.PushPosition(); // save current position
+
+worksheet.PopPosition(); // restore last saved position
+
+worksheet.PurgePositions(); // clear position stack
+```
 ## Adjusting column width and row height
 ```
 worksheet.AdjustColumnWidth(); // adjust width of all used columns
