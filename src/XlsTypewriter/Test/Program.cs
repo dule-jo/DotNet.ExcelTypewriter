@@ -20,7 +20,13 @@ var nextStyle = worksheet.GetStyle();
 nextStyle.Font.Bold = false;
 worksheet.SetStyle(nextStyle);
 worksheet.Print("World");
+worksheet.FreezeColumns();
 worksheet.NewRow();
+worksheet.FreezeRows();
+
+
+// worksheet.HideColumn();
+// worksheet.HideRow();
 
 wsstyle.Font.Bold = false;
 worksheet.SetStyleToWorksheet(wsstyle);
@@ -35,6 +41,8 @@ worksheet.NewRow();
 worksheet.Merge(1, 2);
 worksheet.Print("Hello3 World3");
 worksheet.NewRow();
+worksheet.PageSetup.Header.Left.AddText("Created with XlsTypewriter");
+
 
 worksheet.SetBoxBorders(XLBorderStyleValues.Thick);
 worksheet.SetBordersColor(XLColor.Blue);

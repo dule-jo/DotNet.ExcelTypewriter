@@ -9,10 +9,12 @@ public class Workbook : IDisposable
     private readonly XLWorkbook _workbook = new();
 
     public XLWorkbookProperties Properties => _workbook.Properties;
-    
+
     public IXLCustomProperties CustomProperties => _workbook.CustomProperties;
 
     public void SaveAs(string path) => _workbook.SaveAs(path);
+
+    public void SaveAs(Stream stream) => _workbook.SaveAs(stream);
 
     public Worksheet AddWorksheet(string name)
     {

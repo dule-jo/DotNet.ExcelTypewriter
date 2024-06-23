@@ -37,7 +37,7 @@ var style = worksheet.GetStyle();
 style.Font.Bold = true;
 worksheet.SetStyle(style, 1, 2); // set style for cell in 2nd column and 1st row
 ```
-Style can be set using predefined styles.
+Style can be set using predefined styles. Here are some examples:
 ```
 worksheet.SetBoxBorders(XLBorderStyleValues.Thick); // set thick border around current cell
 worksheet.SetBordersColor(XLColor.Blue, 1, 2); // set blue color for borders current cell and next cell in row
@@ -92,4 +92,28 @@ worksheet.AdjustCurrentRowHeight(); // adjust height of current row
 ```
 workbook.Properties.Title = "Hello World";
 workbook.CustomProperties.Add("Author2", "John Doe");
+```
+## Hide and unhide
+```
+worksheet.HideColumn(); // hide current column
+worksheet.HideRow();  // hide current row
+```
+## Page setup
+Page setup can be accessed through worksheet.PageSetup. Here are some examples:
+```
+worksheet.PageSetup.Header.Left.AddText("Created with XlsTypewriter");
+worksheet.PageSetup.Margins.Top = 1;
+worksheet.PageSetup.VerticalDpi = 600;
+```
+
+## Freeze rows and columns
+```
+worksheet.FreezeRows() // freeze current row
+worksheet.FreezeColumns() // freeze current column
+```
+
+## Save as stream
+```
+using var stream = new MemoryStream();
+workbook.SaveAs(stream);
 ```

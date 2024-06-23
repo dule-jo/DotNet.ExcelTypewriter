@@ -10,6 +10,8 @@ public class Worksheet(IXLWorksheet worksheet)
     private int _columnIndex = 1;
 
     private IXLCell CurrentCell => worksheet.Cell(_rowIndex, _columnIndex);
+    
+    public IXLPageSetup PageSetup => worksheet.PageSetup;
 
     public void GoTo(int columnIndex, int rowIndex)
     {
@@ -33,7 +35,7 @@ public class Worksheet(IXLWorksheet worksheet)
         _columnIndex = 1;
     }
 
-    public void SkipColumn(int count = 1) => _columnIndex += count;
+    public void SkipCell(int count = 1) => _columnIndex += count;
 
     private IXLRange GetRange(int rows, int columns) => worksheet.Range(
         CurrentCell,
@@ -206,6 +208,18 @@ public class Worksheet(IXLWorksheet worksheet)
     {
         worksheet.Row(_rowIndex).AdjustToContents();
     }
+    
+    public void HideColumn() => worksheet.Column(_columnIndex).Hide();
+    
+    public void UnhideColumn() => worksheet.Column(_columnIndex).Unhide();
+    
+    public void HideRow() => worksheet.Row(_rowIndex).Hide();
+    
+    public void UnhideRow() => worksheet.Row(_rowIndex).Unhide();
+    
+    public void FreezeRows() => worksheet.SheetView.FreezeRows(_rowIndex);
+    
+    public void FreezeColumns() => worksheet.SheetView.FreezeColumns(_columnIndex);
 
     public string Name => worksheet.Name;
 }
