@@ -25,6 +25,16 @@ for (var i = 1; i < 4; i++) {
 
 workbook.SaveAs("Example.xlsx");
 ```
+## Basic functions
+```
+worksheet.Print("Hello World"); // print text in current cell
+worksheet.NewRow(); // move to next row
+worksheet.NewRow(2); // move to next 2 rows
+worksheet.NewRowKeepColumn(); // move to next row, but keep current column
+worksheet.NewRowKeepColumn(2); // move to next 2 rows, but keep current column
+worksheet.Skip(); // move to next cell in current row
+worksheet.Skip(2); // move to next 2 cells in current row
+```
 ## Merging cells
 ```
 worksheet.Merge(rows:1, columns:2); // merge current cell with next cell in row, getting 2*1
@@ -81,9 +91,7 @@ GoToEnd() // go to last used cell in file
 Position can be saved and restored using position stack
 ```
 worksheet.PushPosition(); // save current position
-
 worksheet.PopPosition(); // restore last saved position
-
 worksheet.PurgePositions(); // clear position stack
 ```
 ## Adjusting column width and row height
