@@ -34,6 +34,7 @@ worksheet.NewRowKeepColumn(); // move to next row, but keep current column
 worksheet.NewRowKeepColumn(2); // move to next 2 rows, but keep current column
 worksheet.Skip(); // move to next cell in current row
 worksheet.Skip(2); // move to next 2 cells in current row
+worksheet.PrintAndGoDown("Hello World"); // print text in current cell and move to next row
 ```
 ## Merging cells
 ```

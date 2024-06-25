@@ -7,7 +7,7 @@
         <RootNamespace>XlsTypewriter</RootNamespace>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <PackageReadmeFile>README.md</PackageReadmeFile>
-        <Version>1.1.3</Version>
+        <Version>1.1.4</Version>
         <Authors>dule-jo</Authors>
         <Description>Simple library for writing Excel(spreadsheets, xlsx) files. Instead of adressing cells traditionally e.g. "C3", user use Functions Print, SkipCell and NewRow to navigate through worksheet.</Description>
     </PropertyGroup>

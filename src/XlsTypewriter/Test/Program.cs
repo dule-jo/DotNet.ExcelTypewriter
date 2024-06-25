@@ -96,4 +96,15 @@ worksheet.Print("World, this is very long column");
 worksheet.AdjustColumnWidth();
 worksheet.AdjustRowHeight();
 
+worksheet = workbook.AddWorksheet("Sheet4");
+
+worksheet.Print("Hello");
+worksheet.Print("World");
+worksheet.NewRow(2);
+worksheet.Print("Hello");
+worksheet.Print("World");
+worksheet.NewRowKeepColumn(2);
+worksheet.Print("Hello");
+worksheet.Print("World");
+
 workbook.SaveAs("./HelloWorld.xlsx");

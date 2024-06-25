@@ -41,6 +41,12 @@ public class Worksheet(IXLWorksheet worksheet)
         CurrentCell.Value = XLCellValue.FromObject(value);
         _columnIndex++;
     }
+    
+    public void PrintAndGoDown(object value)
+    {
+        CurrentCell.Value = XLCellValue.FromObject(value);
+        _rowIndex++;
+    }
 
     public void NewRow(int numberOfRows = 1)
     {
